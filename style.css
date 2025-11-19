@@ -1,0 +1,434 @@
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* ===================== LOGIN PAGE ===================== */
+
+body.login-page {
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #273a7f;
+}
+
+.login-app {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-main {
+    padding: 24px 16px;
+}
+
+.login-wrapper {
+    text-align: center;
+}
+
+/* Logo UNIP */
+.login-logo-img-wrapper {
+    margin-bottom: 32px;
+}
+
+.logo-unip-login {
+    max-width: 190px;
+    height: auto;
+}
+
+/* ----------- CAMPOS DO LOGIN ----------- */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.login-form input {
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+/* Wrapper do campo (linha separada do ícone) */
+.field {
+    position: relative;
+    padding-bottom: 8px;
+}
+
+/* Linha começa só depois do ícone */
+.field-with-icon::after {
+    content: "";
+    position: absolute;
+    left: 32px;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #b5c7ff;
+    opacity: 0.8;
+}
+
+/* Em foco fica azul bebê */
+.field-with-icon.focused::after {
+    background: #4fd0ff;
+    opacity: 1;
+}
+
+/* Ícone RA / Senha com imagens */
+.field-with-icon .field-icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Ícone específico de RA */
+.field-icon-ra {
+    background-image: url("img/ra.png");
+}
+
+/* Ícone específico de Senha */
+.field-icon-senha {
+    background-image: url("img/cadeado.png");
+}
+
+/* Input sem borda, só texto */
+.field-with-icon input {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 10px 4px 2px 32px;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+}
+
+/* PLACEHOLDER MAIS OPACO (mais fraquinho) */
+.field-with-icon input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* lembrar credenciais – alinhado com ícone à esquerda e fim do campo à direita */
+.remember-row {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 32px; /* mesma coluna dos textos dos inputs */
+    padding-right: 2px; /* encosta no fim do campo de senha */
+}
+
+/* checkbox customizado azul bebê com “seta” */
+.remember-row input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 2px solid #b5c7ff;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.15s ease, border-color 0.15s ease,
+                transform 0.08s ease;
+}
+
+.remember-row input[type="checkbox"]:active {
+    transform: scale(0.9);
+}
+
+.remember-row input[type="checkbox"]:checked {
+    background-color: #4fd0ff;   /* azul bebê */
+    border-color: #4fd0ff;
+}
+
+.remember-row input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* mensagem de erro */
+.error-message {
+    color: #ffbebe;
+    font-size: 12px;
+    min-height: 16px;
+    margin-top: -12px;
+    text-align: left;
+}
+
+/* Botão ENTRAR grosso, cinza, sem borda arredondada */
+.btn-primary {
+    width: 100%;
+    border: none;
+    background: #f1f2f4;
+    color: #5c5d5f;
+    border-radius: 0;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease,
+                box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+    background: #e4e4e6;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* ===================== ALUNO (MENU PRINCIPAL) ===================== */
+
+body.aluno-page {
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: #f1f2f4;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+body.aluno-page::-webkit-scrollbar {
+    display: none;
+}
+
+.aluno-app {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f1f2f4;
+}
+
+/* topo – FIXO, COM MENOS ESPAÇO */
+.aluno-header {
+    background: #273a7f;
+    padding: 6px 16px 4px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.aluno-header-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-unip-header {
+    max-height: 36px;
+    width: auto;
+}
+
+/* conteúdo */
+.screen-aluno {
+    flex: 1;
+    padding: 8px 16px 16px;
+}
+
+/* TÍTULO MENOR E COLADO NO HEADER */
+.screen-title {
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    color: #6689aa;
+
+    position: sticky;
+    top: 44px;
+    z-index: 19;
+    background: #f1f2f4;
+    padding-top: 4px;
+    padding-bottom: 6px;
+}
+
+/* grid dos quadrados */
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+/* quadrados */
+.tile {
+    border: none;
+    outline: none;
+    border-radius: 0;
+    aspect-ratio: 1 / 1;
+    background-color: #6892ca;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tile:hover {
+    transform: scale(1.02);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* imagens dos tiles */
+.tile-meu-cadastro {
+    background-image: url("img/01_meuCadastro.png");
+}
+.tile-dados-curso {
+    background-image: url("img/02_dadosDoCurso.png");
+}
+.tile-notas-faltas {
+    background-image: url("img/03_notasEFaltasBimestrais.png");
+}
+
+/* Medias e Exames Finais – maior */
+.tile-medias-exames {
+    background-image: url("img/04_MediasEExamesFinais.png");
+    background-size: 45%;
+}
+
+.tile-integralizacao {
+    background-image: url("img/05_intregalizacaoCurricular.png");
+}
+.tile-posicao-financeira {
+    background-image: url("img/06_posiçãoFinanceira.png");
+}
+.tile-documentos-online {
+    background-image: url("img/07_documentosOnline.png");
+}
+.tile-ava {
+    background-image: url("img/08_ava.png");
+}
+.tile-disciplina-online {
+    background-image: url("img/09_disciplinaOnline.png");
+}
+.tile-biblioteca-virtual {
+    background-image: url("img/10_bibliotecaVirtual.png");
+}
+.tile-minha-biblioteca {
+    background-image: url("img/11_minhaBiblioteca.png");
+}
+
+/* Iniciação Científica – maior */
+.tile-iniciacao-cientifica {
+    background-image: url("img/12_iniciacaoCientificaeTecnologica.png");
+    background-size: 45%;
+}
+
+.tile-trabalhos-academicos {
+    background-image: url("img/13_trabalhosAcademicos.png");
+}
+.tile-carteirinha {
+    background-image: url("img/14_carteirinhaDigital.png");
+}
+
+/* ===================== CARTEIRINHA DIGITAL ===================== */
+
+body.carteirinha-page {
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: #f5f5f5;
+}
+
+.carteirinha-container {
+    width: 100%;
+    max-width: 480px;
+}
+
+/* topo sem bordas arredondadas */
+.carteirinha-top {
+    background: linear-gradient(to bottom, #0c1f6e, #5671c0);
+    padding: 16px;
+    padding-bottom: 24px;
+}
+
+.logo-top-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.logo-unip-small {
+    max-width: 160px;
+}
+
+/* card de informações */
+.card-info-panel {
+    background: linear-gradient(to bottom, #495c9e, #6a81c5);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+}
+
+.card-photo {
+    flex: 0 0 80px;
+}
+
+.photo-img {
+    width: 80px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.card-info {
+    font-size: 12px;
+}
+
+/* QR Code */
+.carteirinha-bottom {
+    background: #f5f5f5;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.qrcode-card {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.35);
+}
+
+.qrcode-img {
+    max-width: 260px;
+}
+
+/* responsivo */
+@media (min-width: 768px) {
+    .login-app {
+        max-width: 480px;
+    }
+    .aluno-app {
+        max-width: 520px;
+    }
+}

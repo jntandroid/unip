@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Acadêmico UNIP - Login</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+    <div class="app login-app">
+        <main class="login-main">
+            <div class="login-wrapper">
+
+                <!-- Logo UNIP -->
+                <div class="login-logo-img-wrapper">
+                    <img src="img/logo-unip.png"
+                         alt="UNIP - Universidade Paulista"
+                         class="logo-unip-login" />
+                </div>
+
+                <!-- Formulário de login -->
+                <form id="login-form" class="login-form">
+
+                    <!-- Matricula (RA) -->
+                    <div class="field field-with-icon">
+                        <span class="field-icon field-icon-ra"></span>
+                        <input
+                            type="text"
+                            id="ra"
+                            name="ra"
+                            placeholder="Matricula (RA)"
+                            autocomplete="off"
+                            required
+                        />
+                    </div>
+
+                    <!-- Senha -->
+                    <div class="field field-with-icon field-password">
+                        <span class="field-icon field-icon-senha"></span>
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Senha"
+                            autocomplete="current-password"
+                            required
+                        />
+                    </div>
+
+                    <!-- Lembrar credenciais -->
+                    <div class="remember-row">
+                        <span>Deseja salvar as suas credenciais?</span>
+                        <input type="checkbox" />
+                    </div>
+
+                    <p id="login-error" class="error-message"></p>
+
+                    <!-- Botão Entrar -->
+                    <button type="submit" class="btn-primary login-button">
+                        ENTRAR
+                    </button>
+                </form>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
